@@ -1,0 +1,9 @@
+.hover{
+    transition:  box-shadow 0.3s ease-in-out;
+}
+
+.hover:hover {
+    -webkit-box-shadow: 9px 11px 26px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 11px 26px 0px rgba(0,0,0,0.75);
+    box-shadow: 9px 11px 26px 0px rgba(0,0,0,0.75);
+}

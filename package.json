@@ -1,0 +1,44 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build_frontend": "cd client && npm run build && cd ..",
+    "start": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 app.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cross-env NODE_ENV=development nodemon app.js",
+    "x": "cross-env NODE_ENV=production node app.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvis339/personal_website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elvis339/personal_website/issues"
+  },
+  "homepage": "https://github.com/Elvis339/personal_website#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.2",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.7",
+    "morgan": "^1.9.1",
+    "validator": "^12.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "pm2": "^4.2.1"
+  },
+  "engines": {
+    "node": "v12.8.1"
+  }
+}
