@@ -5,7 +5,7 @@ const terminal = props => (
     <div className="Terminal">
         <div className="window">
             <div className="terminal">
-                <p className="command">git clone <a target="_blank" rel="noopener" href="https://github.com/Elvis339/personal_website">https://github.com/Elvis339/personal_website</a></p>
+                <p className="command">git clone <a target="_blank" rel="noopener" href="https://github.com/Elvis339/real-fake-website.xyz">https://github.com/Elvis339/real-fake-website.xyz</a></p>
                 <p className="log">
                     <span>
                         Cloning into 'Elvis339'...<br />
