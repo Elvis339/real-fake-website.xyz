@@ -1,10 +1,9 @@
-import React from 'react';
-import Aux from '../../hoc/Aux';
+import React, { Fragment } from 'react';
 
 const register = props => (
-    <Aux>
+    <Fragment>
         HI FROM REGISTER
-    </Aux>
+    </Fragment>
 );
 
 export default register;

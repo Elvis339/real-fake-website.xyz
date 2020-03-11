@@ -7,7 +7,7 @@ import { Container, Row } from 'react-bootstrap';
 
 const social = () => (
     <Container>
-        <Row className="justify-content-center mb-3">
+        <Row className="justify-content-center my-5">
             <a target="_blank" rel="noopener" href="https://github.com/Elvis339/"><FontAwesomeIcon className="mx-3" icon={faGithub} size="lg" /></a>
             <a target="_blank" rel="noopener" href="https://stackoverflow.com/users/10491778/elvis-s"><FontAwesomeIcon className="mx-3" icon={faStackOverflow} size="lg" /></a>
             <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/elvis-sabanovic/"><FontAwesomeIcon className="mx-3" icon={faLinkedin} size="lg" /></a>

@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import Aux from '../../components/hoc/Aux';
+import React, { Component, Fragment } from "react";
 import Terminal from '../../components/Terminal/Terminal';
 import About from '../../components/About/About';
 import Contact from '../../components/Contact/Contact';
@@ -68,9 +67,9 @@ class TerminalController extends Component {
             />
         }
         return (
-            <Aux>
+            <Fragment>
                 {show}
-            </Aux>
+            </Fragment>
         );
     };
 };

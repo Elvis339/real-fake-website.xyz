@@ -1,21 +1,20 @@
-import React from 'react'
-import Aux from '../hoc/Aux';
+import React, { Fragment } from 'react'
 import Navigation from '../Navigation/Navigation';
 import { Container, Row, Card, Col } from 'react-bootstrap';
 
 const frame = props => (
-    <Aux>
+    <Fragment>
         <Navigation handler={props.handler} />
         <Container>
-            <Row>
+            {props.row ? <Row>
                 <Col>
                     <Card body className="my-5">
                         {props.children}
                     </Card>
                 </Col>
-            </Row>
+            </Row> : props.children}
         </Container>
-    </Aux>
+    </Fragment>
 );
 
 export default frame;

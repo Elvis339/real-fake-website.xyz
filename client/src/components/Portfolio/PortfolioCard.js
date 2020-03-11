@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Row } from 'react-bootstrap'
 import './PortfolioCard.css';
 
-import Card from '../UserInterface/Card/Card';
+import Card from '../Layouts/Card/Card';
 
 const portfolioCard = props => {
     return (

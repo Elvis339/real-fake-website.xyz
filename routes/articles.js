@@ -6,5 +6,5 @@ module.exports = (router) => {
   router.route('/articles')
     .post(auth, controller.addNewArticle)
     .get(controller.getArticles)
-    .patch(auth, controller.editArticle) 
+    .patch(auth, controller.editArticle)
 };

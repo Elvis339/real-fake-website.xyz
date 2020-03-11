@@ -16,7 +16,7 @@ const card = props => {
                 <Card.Body>
                     {props.body}
                 </Card.Body>
-                {props.uri ? <Link className='text-center btn btn-info' target="_blank" to={`/portfolio/${props.uri}`}>Go</Link> : null}
+                {props.uri ? <Link className='text-center btn btn-primary' target="_blank" to={`/portfolio/${props.uri}`}>Go</Link> : null}
             </Card>
         </Fragment>
     )
