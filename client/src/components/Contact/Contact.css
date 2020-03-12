@@ -1,0 +1,14 @@
+.Contact-Card {
+    background-color: #494955;
+}
+
+.Contact-Card:hover {
+    -webkit-box-shadow: 14px 22px 22px 0px rgba(188,188,188,1);
+    -moz-box-shadow: 14px 22px 22px 0px rgba(188,188,188,1);
+    box-shadow: 14px 22px 22px 0px rgba(188,188,188,1);
+    transition: 0.2s ease;
+}
+
+.contact-paragraph {
+    color: #fff;
+}

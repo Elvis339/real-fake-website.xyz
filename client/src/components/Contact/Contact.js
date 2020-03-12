@@ -5,29 +5,28 @@ import { faNodeJs, faReact, faAws } from '@fortawesome/free-brands-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Centered from '../Layouts/Centered/Centered';
 import Social from '../Social/Social';
+import './Contact.css';
 
 const contact = props => (
     <Fragment>
         <Navigation handler={props.handler} />
         <Container>
             <Centered height='70vh'>
-                <Card>
+                <Card className='Contact-Card pt-4'>
                     <Card.Body>
                         <Row className='align-items-center'>
                             <Col><Card.Img className="img-fluid" src="/img/elva.jpg" /></Col>
                             <Col>
-                                <p className='lead'>Elvis</p>
+                                <p className='lead contact-paragraph'>Elvis</p>
                             </Col>
                             <Col>
-                                <p className='lead'>Sabanovic</p>
+                                <p className='lead contact-paragraph'>Sabanovic</p>
                             </Col>
+                            <Social />
                         </Row>
                     </Card.Body>
                 </Card>
             </Centered>
-            <div className="mt-2">
-                <Social />
-            </div>
             <p className="lead text-center">Built with</p>
             <Row className="justify-content-center mb-3">
                 Backend: <FontAwesomeIcon className="mx-3" icon={faNodeJs} size="lg" />
