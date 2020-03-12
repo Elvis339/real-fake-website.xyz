@@ -12,7 +12,7 @@ class TerminalController extends Component {
     }
 
     state = {
-        input: "home",
+        input: "contact",
         error: null,
     };
 

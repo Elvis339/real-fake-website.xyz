@@ -15,6 +15,11 @@ const navigation = props => (
         <Nav.Item>
             <Nav.Link eventKey="link-2" data-state="contact" onClick={props.handler}>Contact</Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+            <Nav.Link eventKey="link-2" href="/img/Elvis_Sabanovic_CV.pdf">
+                View my CV
+            </Nav.Link>
+        </Nav.Item>
     </Nav> 
 )
 

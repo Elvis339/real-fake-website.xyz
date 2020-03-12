@@ -1,6 +1,5 @@
 const Article = require('../../../models/ArticleModel');
 
-
 module.exports = {
     addNewArticle: async (req, res) => {
         const article = new Article(req.body);
