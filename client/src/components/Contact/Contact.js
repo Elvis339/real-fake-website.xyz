@@ -12,8 +12,8 @@ const contact = props => (
         <Navigation handler={props.handler} />
         <Container>
             <Centered height='70vh'>
-                <Card className='Contact-Card pt-4'>
-                    <Card.Body>
+                <Card className='Contact-Card'>
+                    <Card.Body className='Contact-Inner pt-4'>
                         <Row className='align-items-center'>
                             <Col><Card.Img className="img-fluid" src="/img/elva.jpg" /></Col>
                             <Col>

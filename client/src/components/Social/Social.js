@@ -1,7 +1,6 @@
 import React from 'react';
 import { faGithub, faLinkedin, faStackOverflow, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row } from 'react-bootstrap';
 
 

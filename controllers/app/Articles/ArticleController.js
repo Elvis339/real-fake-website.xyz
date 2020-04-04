@@ -41,10 +41,12 @@ module.exports = {
     getPortfolios: async (req, res) => {
         try {
             let portfolios = null;
-            const { query } = req
+            const { id } = req.query
 
-            if (query.id) {
-                portfolios = await Article.findById({ _id: query.id })
+            if (id) {
+                const title = id.replace(/\-/g, ' ');
+                console.log(title)
+                portfolios = await Article.findOne({ title })
             } else {
                 portfolios = await Article.find({ type: "Portfolio" })
             }

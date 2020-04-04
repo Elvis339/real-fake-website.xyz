@@ -6,8 +6,8 @@ import Navigation from '../Navigation/Navigation';
 import { Container, Row } from 'react-bootstrap';
 import Social from '../Social/Social';
 
-const portfolio = props => (
-    <Fragment>
+const portfolio = props => {
+    return <Fragment>
         <Navigation handler={props.handler} />
         <Container>
             <Row className='justify-content-center'>
@@ -26,7 +26,7 @@ const portfolio = props => (
                                             end_date={val.end_date.slice(0, 10)}
                                             body={val.short_description}
                                             skills={abc}
-                                            uri={val._id}
+                                            uri={val.title.replace(/\s/g, '-')}
                                         />
                                     </Fragment>
                                 )
@@ -38,6 +38,6 @@ const portfolio = props => (
             <Social />
         </Container>
     </Fragment>
-);
+}
 
 export default portfolio;
