@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
 
-const centered = props => (
-    <Row className='justify-content-center align-items-center' style={{ height: `${props.height}` }}>
-        {props.children}
+const centered = ({ children, height }) => (
+    <Row className='justify-content-center align-items-center' style={{ height: `${height}` }}>
+        {children}
     </Row>
 );
 
