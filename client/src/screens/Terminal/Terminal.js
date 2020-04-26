@@ -5,7 +5,7 @@ import Contact from "../../components/Contact/Contact";
 import Portfolio from "../../components/Portfolio/Portfolio";
 
 const Terminal = () => {
-    const [navigation, setNavigation] = useState('contact');
+    const [navigation, setNavigation] = useState('terminal');
     const handleNavigation = e => {
         const value = e.target.value.toLocaleLowerCase(), allowedCommands = [
             'about',
@@ -32,4 +32,4 @@ const Terminal = () => {
     }
 };
 
-export default  Terminal;
+export default Terminal;

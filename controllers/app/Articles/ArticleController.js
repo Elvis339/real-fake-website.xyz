@@ -48,7 +48,7 @@ module.exports = {
                 console.log(title)
                 portfolios = await Article.findOne({ title })
             } else {
-                portfolios = await Article.find({ type: "Portfolio" })
+                portfolios = await Article.find({ type: "Portfolio" }).sort({ createdAt: 'asc' });
             }
             res.status(200).send(portfolios)
         } catch (error) {
