@@ -1,9 +1,8 @@
-import React from 'react';
-import Aux from '../../hoc/Aux';
+import React, { Fragment } from 'react';
 import { Form } from 'react-bootstrap';
 
 const portfolio = props => (
-    <Aux>
+    <Fragment>
         <Form.Group controlId="short_description">
             <Form.Label>Short description</Form.Label>
             <Form.Control required name="short_description" onChange={props.change} type="text" />
@@ -20,7 +19,7 @@ const portfolio = props => (
             <Form.Label>End date</Form.Label>
             <Form.Control required name="end_date" onChange={props.change} type="date" />
         </Form.Group>
-    </Aux>
+    </Fragment>
 )
 
 export default portfolio;

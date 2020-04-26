@@ -1,7 +1,7 @@
 import React from 'react';
 import './Terminal.css';
 
-const terminal = props => (
+const terminal = ({ change }) => (
     <div className="Terminal">
         <div className="window">
             <div className="terminal">
@@ -17,15 +17,14 @@ const terminal = props => (
                     </span>
                 </p>
                 <p className="command">
-                    cd <input 
-                        type="text" 
+                    cd <input
+                        type="text"
                         placeholder="Enter a command"
-                        onChange={props.change}
-                        />
+                        onChange={change}
+                    />
                 </p>
                 <p className="help">
                     Available commands about, portfolio, contact, blog <br />
-                    {props.error}
                 </p>
             </div>
         </div>

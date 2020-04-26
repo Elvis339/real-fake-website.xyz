@@ -34,7 +34,7 @@ if (environment === 'production') {
 }
 
 app.listen(port, () => {
-    console.log(`Server now listening at http://localhost:${port}`);
+    console.log(`Server now listening at ${port}`);
 });
 
 module.exports = app;

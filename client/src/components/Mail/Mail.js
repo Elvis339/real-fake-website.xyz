@@ -1,10 +1,9 @@
-import React from 'react';
-import Aux from '../hoc/Aux';
+import React, { Fragment } from 'react';
 
 const mail = props => (
-    <Aux>
+    <Fragment>
         <a href="mailto:elvissabanovic3@gmail.com?subject=Contact from a website&body=I'll be happy to talk to you! :)">{props.text}</a>
-    </Aux>
+    </Fragment>
 );
 
 export default mail;

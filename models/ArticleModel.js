@@ -11,11 +11,6 @@ const ArticleSchema = new mongoose.Schema({
         unique: true,
         required: true,
     },
-    short_description: {
-        type: String,
-        unique: true,
-        required: false,
-    },
     created_by: {
         type: String,
         required: true,
@@ -29,11 +24,11 @@ const ArticleSchema = new mongoose.Schema({
         required: false
     },
     start_date: {
-        type: Date,
+        type: String,
         required: false,
     },
     end_date: {
-        type: Date,
+        type: String,
         required: false
     },
     urls: {

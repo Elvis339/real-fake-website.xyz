@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Editor from '../EditorContainer/EditorContainer';
 import Article from '../../../components/Admin/Article/Article';
+import Portfolio from '../../../components/Admin/Article/Portfolio';
 import AuthenticatedComponent from '../AuthenticatedContainer/AuthenticatedContainer';
+import { Button } from 'react-bootstrap';
 
 
 class ArticleController extends Component {
@@ -10,6 +13,7 @@ class ArticleController extends Component {
 
         this.handleSubmit.bind(this);
         this.handleChange.bind(this);
+        this.handleEditor.bind(this);
     }
 
     state = {
@@ -31,6 +35,12 @@ class ArticleController extends Component {
         })
     }
 
+    handleEditor(value) {
+        this.setState({
+            description: value
+        })
+    }
+
     async handleSubmit(e) {
         e.preventDefault();
 
@@ -43,10 +53,12 @@ class ArticleController extends Component {
                         type: this.state.type,
                         created_by: window.localStorage.getItem('created_by')
                     }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` } })
-                    this.setState({ status: {
-                        err: "Done!",
-                        message: "Added",
-                    }})
+                    this.setState({
+                        status: {
+                            err: "Done!",
+                            message: "Added",
+                        }
+                    })
                 } else {
                     await axios.patch('/api/v1/articles', {
                         title: this.state.title,
@@ -54,10 +66,12 @@ class ArticleController extends Component {
                         type: this.state.type,
                         created_by: window.localStorage.getItem('created_by')
                     }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` } })
-                    this.setState({ status: {
-                        err: "Done!",
-                        message: "Patched",
-                    }})
+                    this.setState({
+                        status: {
+                            err: "Done!",
+                            message: "Patched",
+                        }
+                    })
                 }
             } else {
                 if (this.props.post) {
@@ -70,11 +84,13 @@ class ArticleController extends Component {
                         created_by: window.localStorage.getItem('created_by'),
                         start_date: this.state.start_date,
                         end_date: this.state.end_date,
-                    }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` }})
-                    this.setState({ status: {
-                        err: "Done!",
-                        message: "Added",
-                    }})
+                    }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` } })
+                    this.setState({
+                        status: {
+                            err: "Done!",
+                            message: "Added",
+                        }
+                    })
                 } else {
                     await axios.patch('/api/v1/articles', {
                         title: this.state.title,
@@ -85,11 +101,13 @@ class ArticleController extends Component {
                         created_by: window.localStorage.getItem('created_by'),
                         start_date: this.state.start_date,
                         end_date: this.state.end_date,
-                    }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` }})
-                    this.setState({ status: {
-                        err: "Done!",
-                        message: "Patched",
-                    }})
+                    }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` } })
+                    this.setState({
+                        status: {
+                            err: "Done!",
+                            message: "Patched",
+                        }
+                    })
                 }
             }
         }
@@ -107,7 +125,11 @@ class ArticleController extends Component {
                     type={this.state.type}
                     change={e => this.handleChange(e)}
                     handleSubmit={e => this.handleSubmit(e)}
-                />
+                >
+                    <Editor change={value => this.handleEditor(value)} />
+                    {this.state.type === "Portfolio" ? <Portfolio change={e => this.handleChange(e)} /> : null}
+                    <Button className='my-3' type="submit">{this.state.type || "About"}</Button>
+                </Article>
             </AuthenticatedComponent>
         )
     }

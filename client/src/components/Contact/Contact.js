@@ -1,59 +1,36 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNodeJs, faReact, faAws } from '@fortawesome/free-brands-svg-icons';
-import Aux from '../hoc/Aux';
 import Navigation from '../Navigation/Navigation';
-import Paragraph from '../UserInterface/Paragraph/Paragraph';
-import Social from '../Social/Social';
+import Centered from '../Layouts/Centered/Centered';
+import './Contact.css';
 
-
-const contact = props => (
-    <Aux>
-        <Navigation handler={props.handler} />
+const contact = ({ handler }) => (
+    <Fragment>
+        <Navigation handler={handler} />
         <Container>
-            <Card body className="my-5">
-                <Row>
-                    <Col>
-                      <Card.Img className="img-fluid" src="/img/elva.jpg" />  
-                    </Col>
-                    <Col>
-                        <Card.Body>
-                            <Row>
-                                <Col>
-                                    <h3>Name: </h3>
-                                    <Paragraph data="Elvis" /> <br />
-                                </Col>
-                                <Col>
-                                    <h3>Lastname: </h3>
-                                    <Paragraph data="Sabanovic" />
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <h3>My CV: </h3>
-                                    <a className="lead" href="/img/Elvis_Sabanovic_CV.pdf">Get PDF</a>
-                                </Col>
-                                <Col>
-                                    <h3>Blog: </h3>
-                                    <Paragraph data="Work in progress..." />
-                                </Col>
-                            </Row>
-                        </Card.Body>
-                    </Col>
-                </Row>
-                <div className="mt-5">
-                        <Social />
-                </div>
-                <p className="lead text-center">Built with</p>
-                <Row className="justify-content-center mb-3">
-                    Backend: <FontAwesomeIcon className="mx-3" icon={faNodeJs} size="lg" /> 
-                    Frontend: <FontAwesomeIcon className="mx-3" icon={faReact} size="lg" />
-                    Hosted on: <FontAwesomeIcon className="mx-3" icon={faAws} size="lg" />
-                </Row>
-            </Card>
+            <Centered height='70vh'>
+                <Card className='Contact-Card'>
+                    <Card.Body className='Contact-Inner pt-4'>
+                        <Row className='align-items-center'>
+                            <Col><Card.Img className="img-fluid" src="/img/elva.jpg" /></Col>
+                            <Col>
+                                <p className='lead contact-paragraph'>Elvis</p>
+                            </Col>
+                            <Col>
+                                <p className='lead contact-paragraph'>Sabanovic</p>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                    <Row className='justify-content-center'>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://github.com/Elvis339/">My GitHub account</a>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://stackoverflow.com/users/10491778/elvis-s">StackOverflow</a>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://www.linkedin.com/in/elvis-sabanovic/">LinkedIn</a>
+                        <a className='mx-3' href="mailto:elvissabanovic3@gmail.com?subject=Contact from a website&body=I'll be happy to talk to you! :)">Mail</a>
+                    </Row>
+                </Card>
+            </Centered>
         </Container>
-    </Aux>
+    </Fragment>
 )
 
 export default contact;

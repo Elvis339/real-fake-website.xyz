@@ -1,6 +1,6 @@
 const
     mongoose = require('mongoose'),
-    developmentConnUri = process.env.MONGO_DEV_CONN_URL,
+    developmentConnUri = process.env.MONGO_DEV_CONN_URL || 'mongodb://127.0.0.1:27017/website',
     databaseOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true,

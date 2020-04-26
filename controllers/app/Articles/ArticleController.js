@@ -1,9 +1,11 @@
 const Article = require('../../../models/ArticleModel');
 
-
 module.exports = {
     addNewArticle: async (req, res) => {
         const article = new Article(req.body);
+        article.db.db
+            .admin()
+            .command({ setParameter: 1, failIndexKeyTooLong: false });
         const { type } = req.body;
         try {
             const about = await Article.findOne({ type })
@@ -25,24 +27,7 @@ module.exports = {
 
     getArticles: async (req, res) => {
         try {
-            let article;
-            let query = req.query
-
-            if (query.id) {
-                article = await Article.findById({ _id: query.id })
-            }
-
-            switch (query.article) {
-                case "about":
-                    article = await Article.find({ type: "About" })
-                    break;
-                case "portfolio":
-                    article = await Article.find({ type: "Portfolio" })
-                    break;
-                default:
-                    break;
-            }
-
+            const article = await Article.find({ type: "About" })
             res.status(200).send({ article })
         } catch (error) {
             res.status(500).send({
@@ -55,12 +40,21 @@ module.exports = {
 
     getPortfolios: async (req, res) => {
         try {
-            const article = await Article.find({ type: "Portfolio" })
-            res.status(200).send(article)
+            let portfolios = null;
+            const { id } = req.query
+
+            if (id) {
+                const title = id.replace(/\-/g, ' ');
+                console.log(title)
+                portfolios = await Article.findOne({ title })
+            } else {
+                portfolios = await Article.find({ type: "Portfolio" })
+            }
+            res.status(200).send(portfolios)
         } catch (error) {
             res.status(500).send({
-                message: "Somethings wrong :(",
-                status: 500,
+                message: "Portfolios not found",
+                status: 404,
                 err: error.toString()
             })
         }

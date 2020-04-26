@@ -1,21 +1,21 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap'
+import {Nav} from 'react-bootstrap'
 
-const navigation = props => (
-    <Nav justify defaultActiveKey="/">
+const navigation = ({ handler }) => (
+    <Nav variant="pills" className="justify-content-center">
         <Nav.Item>
-            <Nav.Link onClick={props.handler} data-state="home">Terminal</Nav.Link>
+            <Nav.Link className='navigation-item' onClick={handler} data-state="home">Terminal</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link onClick={props.handler} data-state="about">About me</Nav.Link>
+            <Nav.Link className='navigation-item' onClick={handler} data-state="about">About me</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-1" data-state="portfolio" onClick={props.handler}>Portfolio</Nav.Link>
+            <Nav.Link className='navigation-item' onClick={handler} data-state="portfolio">Portfolio</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-2" data-state="contact" onClick={props.handler}>Contact</Nav.Link>
+            <Nav.Link className='navigation-item' onClick={handler} data-state="contact">Contact</Nav.Link>
         </Nav.Item>
-    </Nav> 
-)
+    </Nav>
+);
 
 export default navigation;
