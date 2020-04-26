@@ -1,38 +1,39 @@
-import React, { Fragment, useEffect } from 'react';
-import { Card } from 'react-bootstrap';
+import React, {Fragment} from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import Resource from '../../containers/Resource/Resource';
 import Social from '../Social/Social';
-import Frame from '../Frame/Frame';
-import Centered from '../Layouts/Centered/Centered';
+import Navigation from '../Navigation/Navigation';
 
-const About = ({ handler }) => {
-    return (
-        <Frame handler={handler} row={false}>
-            <Resource
-                path="/api/v1/articles"
-                render={
-                    data => {
-                        if (typeof (data.payload.article) !== "undefined") {
-                            return data.payload.article.map((val, index) => {
-                                return (
-                                    <Fragment key={index}>
-                                        <div className='about-view'>
-                                            <h1 className='text-center header-text'>Hi! Here's something about me.</h1>
-                                        </div>
-                                        <div body className='about-content mx-auto about-card'>
+const About = ({handler}) => (
+    <>
+        <Navigation handler={handler}/>
+        <div className='about-view'>
+            <h1 className='text-center header-text'>Hi! I'm Elvis, I like programming.</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="white" points="0,100 100,0 100,100"/>
+            </svg>
+        </div>
+        <Resource
+            path="/api/v1/articles"
+            render={
+                data => {
+                    if (typeof (data.payload.article) !== "undefined") {
+                        return data.payload.article.map((val, index) => {
+                            return (
+                                <Fragment key={index}>
+                                    <div className='about-content mx-auto about-card'>
+                                        <div className="lead">
                                             {ReactHtmlParser(val.description)}
                                         </div>
-                                    </Fragment>
-                                )
-                            })
-                        }
+                                    </div>
+                                </Fragment>
+                            )
+                        })
                     }
                 }
-            />
-            <Social />
-        </Frame>
-    )
-}
+            }
+        />
+    </>
+)
 
 export default About;
