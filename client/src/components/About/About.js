@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import Resource from '../../containers/Resource/Resource';
-import Social from '../Social/Social';
 import Navigation from '../Navigation/Navigation';
 
 const About = ({handler}) => (
