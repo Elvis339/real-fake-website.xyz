@@ -36,7 +36,7 @@ svg {
 }
 
 .navigation-item:hover {
-    background: #22da26;
+    background: var(--header-text-color);
     font-weight: 500;
     color: #fff;
 }

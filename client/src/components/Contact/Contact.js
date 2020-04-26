@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNodeJs, faReact, faAws } from '@fortawesome/free-brands-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Centered from '../Layouts/Centered/Centered';
-import Social from '../Social/Social';
 import './Contact.css';
 
-const contact = props => (
+const contact = ({ handler }) => (
     <Fragment>
-        <Navigation handler={props.handler} />
+        <Navigation handler={handler} />
         <Container>
             <Centered height='70vh'>
                 <Card className='Contact-Card'>
@@ -22,17 +19,16 @@ const contact = props => (
                             <Col>
                                 <p className='lead contact-paragraph'>Sabanovic</p>
                             </Col>
-                            <Social />
                         </Row>
                     </Card.Body>
+                    <Row className='justify-content-center'>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://github.com/Elvis339/">My GitHub account</a>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://stackoverflow.com/users/10491778/elvis-s">StackOverflow</a>
+                        <a className='mx-3' target="_blank" rel="noopener" href="https://www.linkedin.com/in/elvis-sabanovic/">LinkedIn</a>
+                        <a className='mx-3' href="mailto:elvissabanovic3@gmail.com?subject=Contact from a website&body=I'll be happy to talk to you! :)">Mail</a>
+                    </Row>
                 </Card>
             </Centered>
-            <p className="lead text-center">Built with</p>
-            <Row className="justify-content-center mb-3">
-                Backend: <FontAwesomeIcon className="mx-3" icon={faNodeJs} size="lg" />
-                Frontend: <FontAwesomeIcon className="mx-3" icon={faReact} size="lg" />
-                Hosted on: <FontAwesomeIcon className="mx-3" icon={faAws} size="lg" />
-            </Row>
         </Container>
     </Fragment>
 )
