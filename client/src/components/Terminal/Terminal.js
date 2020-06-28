@@ -18,6 +18,7 @@ const terminal = ({ change }) => (
                 </p>
                 <p className="command">
                     cd <input
+                        autoFocus
                         type="text"
                         placeholder="Enter a command"
                         onChange={change}

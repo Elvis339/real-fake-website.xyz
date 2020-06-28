@@ -1,9 +1,8 @@
-const 
-    mongoose = require('mongoose'),
-    validator = require('validator'),
-    bcrypt = require('bcrypt'),
-    jwt = require('jsonwebtoken'),
-    config = require('../config');
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require('../../../config');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -46,14 +45,13 @@ const userSchema = new mongoose.Schema({
     role: { type: String, lowercase: true }
 }, {
     timestamps: true
-})
+});
 
-// Method for showing the right object
 userSchema.methods.toJSON = function () {
     const user = this
     const userObject = user.toObject()
 
-    
+
     delete userObject.password
     delete userObject.tokens
     delete userObject.avatar
@@ -94,7 +92,7 @@ userSchema.pre('save', async function (next) {
     const user = this
 
     if (user.isModified('password')) {
-        user.password = await bcrypt.hash(user.password, config.development.saltingRounds)
+        user.password = await bcrypt.hash(user.password, config.saltingRounds)
     }
 
     next()

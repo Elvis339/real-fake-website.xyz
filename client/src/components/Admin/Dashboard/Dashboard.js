@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Container, Row } from 'react-bootstrap';
 import ArticleContainer from '../../../containers/Admin/ArticleContainer/ArticleContainer';
-import logoff from '../../../helpers/logout';
+import { logoff } from '../../../helpers';
 
 
 const dashboard = props => (
@@ -41,7 +41,7 @@ const dashboard = props => (
 function Child(props) {
     let { id } = useParams();
     let show;
-    switch(id){
+    switch (id) {
         case "add":
             show = <ArticleContainer post={true} />
             break;

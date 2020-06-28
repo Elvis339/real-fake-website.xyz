@@ -3,10 +3,10 @@ import { Form, Alert } from 'react-bootstrap';
 
 const article = props => (
     <Fragment>
-        { props.status ? <Alert 
+        {props.status ? <Alert
             variant='info'
             title={props.status.err}
-        /> : null }
+        /> : null}
 
         <Form className="w-100 my-5" onSubmit={props.handleSubmit}>
             <Form.Group controlId="title">

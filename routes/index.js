@@ -1,12 +1,9 @@
-const 
-  users = require('./users'),
-  articles = require('./articles'),
-  portfolios = require('./portfolios');
+const { UserRoutes: users } = require('../modules/User');
+const { PortfolioRoutes: portfolio } = require('../modules/Portfolio');
 
 module.exports = (router) => {
   users(router);
-  articles(router);
-  portfolios(router);
+  portfolio(router);
 
   return router;
 };
