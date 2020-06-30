@@ -5,5 +5,5 @@ module.exports = (router) => {
     router.route('/portfolios')
         .post(auth, controller.addNewArticle)
         .get(controller.getArticles)
-    // .patch(auth, controller.editArticle)
+        .patch(auth, controller.editArticle)
 };

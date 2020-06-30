@@ -13,22 +13,16 @@ const About = ({ handler }) => (
             </svg>
         </div>
         <Resource
-            path="/api/v1/articles"
+            path="/api/v1/about"
             render={
                 data => {
-                    if (typeof (data.payload.article) !== "undefined") {
-                        return data.payload.article.map((val, index) => {
-                            return (
-                                <Fragment key={index}>
-                                    <div className='about-content mx-auto about-card'>
-                                        <div className="lead">
-                                            {ReactHtmlParser(val.description)}
-                                        </div>
-                                    </div>
-                                </Fragment>
-                            )
-                        })
-                    }
+                    return (
+                        <div className='about-content mx-auto about-card'>
+                            <div className="lead">
+                                {ReactHtmlParser(data.description)}
+                            </div>
+                        </div>
+                    )
                 }
             }
         />

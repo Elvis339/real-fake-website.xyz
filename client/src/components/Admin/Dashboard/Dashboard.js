@@ -27,7 +27,7 @@ const dashboard = props => (
                     <Link to="/admin">Admin</Link>
                 </li>
                 <li>
-                    <Link to='/login' onClick={logoff}>Logout</Link>
+                    <Link to='/logout' onClick={logoff}>Logout</Link>
                 </li>
             </ul>
 

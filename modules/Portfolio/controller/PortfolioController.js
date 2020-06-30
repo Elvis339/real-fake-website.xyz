@@ -1,5 +1,4 @@
 const Portfolio = require('../model/PortfolioModel');
-const { sortByStartDateDesc } = require('../../../utils/utils');
 
 const addNewArticle = async (req, res) => {
     try {
@@ -22,7 +21,7 @@ const addNewArticle = async (req, res) => {
             message: "Not acceptable",
             status: 406,
         });
-    };
+    }
 };
 
 const getArticles = async (req, res) => {
@@ -44,59 +43,44 @@ const getArticles = async (req, res) => {
             message: "Somethings wrong :(",
             status: 500,
         });
-    };
+    }
 };
 
-// const editArticle = async (req, res) => {
-//     try {
-//         const updates = Object.keys(req.body);
-//         allowedUpdates = [
-//             "_id",
-//             "description",
-//             "title",
-//             "dev_stack",
-//             "timeOfEmployement",
-//             "sort",
-//         ]
-//     } catch (error) {
+const editArticle = async (req, res) => {
+    try {
+        const updates = Object.keys(req.body);
+        const allowedUpdates = [
+            "_id",
+            "description",
+            "title",
+            "dev_stack",
+            "start_date",
+            "end_date"
+        ];
 
-//     }
-// };
+        const isValidOperation = updates.every(update => allowedUpdates.includes(update));
+
+        if (!isValidOperation) {
+            return res.status(400).send({
+                error: 'Invalid update!',
+            });
+        }
+
+        const { _id } = req.body;
+        const article = await Portfolio.findOne({ _id });
+        updates.filter(val => val !== "_id").forEach(update => article[update] = req.body[update]);
+        await article.save();
+        res.status(200).send(article);
+    } catch (error) {
+        res.status(405).send({
+            message: "Request sent is bad :/",
+            status: 405,
+        });
+    }
+};
 
 module.exports = {
     addNewArticle,
     getArticles,
-    // editArticle: async (req, res) => {
-    //     const updates = Object.keys(req.body),
-    //         allowedUpdates = [
-    //             "_id",
-    //             "description",
-    //             "title",
-    //             "dev_stack",
-    //             "date_started",
-    //             "date_ended",
-    //             "created_by"
-    //         ],
-    //         isValidOperation = updates.every(update => allowedUpdates.includes(update));
-
-    //     if (!isValidOperation) {
-    //         return res.status(400).send({
-    //             error: 'Invalid updates.'
-    //         })
-    //     }
-
-    //     const { _id } = req.body
-    //     try {
-    //         const article = await Portfolio.findOne({ _id })
-    //         updates.filter(val => val !== "_id").forEach(update => article[update] = req.body[update])
-    //         await article.save()
-    //         res.status(200).send(article)
-    //     } catch (error) {
-    //         res.status(405).send({
-    //             err: error.toString(),
-    //             message: "Request sent is bad :/",
-    //             status: 405
-    //         });
-    //     };
-    // }
+    editArticle,
 }

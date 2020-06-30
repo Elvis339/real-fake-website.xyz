@@ -51,7 +51,6 @@ class ArticleController extends Component {
                         title: this.state.title,
                         description: this.state.description,
                         type: this.state.type,
-                        created_by: window.localStorage.getItem('created_by')
                     }, { headers: { "Authorization": `Bearer ${window.localStorage.getItem('token')}` } })
                     this.setState({
                         status: {

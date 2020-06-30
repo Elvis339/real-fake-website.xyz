@@ -40,7 +40,6 @@ class Admin extends Component {
                 password: this.state.password,
             })
             localStorage.setItem('token', res.data.token);
-            localStorage.setItem('created_by', this.state.email);
             this.props.history.push('/admin');
         }
         catch (err) {

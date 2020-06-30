@@ -14,4 +14,7 @@ module.exports = (router) => {
     // Log out
     router.route('/logout')
         .post(auth, controller.logOut)
+
+    router.route('/about')
+        .get(controller.aboutMe)
 };

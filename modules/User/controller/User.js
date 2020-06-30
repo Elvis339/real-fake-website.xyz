@@ -1,4 +1,5 @@
 const User = require('../model/UserModel');
+const Portfolio = require('../../Portfolio/model/PortfolioModel');
 
 const addNewUser = async (req, res) => {
     try {
@@ -47,6 +48,18 @@ const logOut = async (req, res) => {
     };
 };
 
+const aboutMe = async (req, res) => {
+    try {
+        const about = await Portfolio.findOne({ type: "About" });
+        res.status(200).send(about);
+    } catch (error) {
+        res.status(404).send({
+            message: "Something went wrong..",
+            status: 404,
+        })
+    }
+}
+
 const validate = async (req, res) => {
     try {
         const { email, name } = req.user
@@ -63,5 +76,6 @@ module.exports = {
     addNewUser,
     login,
     logOut,
+    aboutMe,
     validate,
 };

@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class Editor extends Component {
     constructor(props) {
@@ -33,16 +34,12 @@ class Editor extends Component {
     }
 
     render() {
-        return (
-            <Fragment>
-                <ReactQuill
-                    modules={this.modules}
-                    ref={(el) => { this.reactQuillRef = el }}
-                    theme={'snow'}
-                    onChange={this.props.change}
-                />
-            </Fragment>
-        )
+        return <ReactQuill
+            modules={this.modules}
+            ref={(el) => { this.reactQuillRef = el }}
+            theme={'snow'}
+            onChange={this.props.change}
+        />
     }
 }
 
