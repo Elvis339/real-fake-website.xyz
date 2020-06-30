@@ -8,8 +8,6 @@ import Dashboard from './components/Admin/Dashboard/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles.css';
 
-import 'react-quill/dist/quill.snow.css';
-
 function App() {
   return (
     <BrowserRouter>

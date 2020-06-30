@@ -1,27 +1,24 @@
-require('dotenv').config(); // Sets up dotenv as soon as our application starts
-const
-    express = require('express'),
-    path = require('path'),
-    bodyParser = require('body-parser'),
-    logger = require('morgan'),
-    routes = require('./routes/index.js'),
-    stage = require('./config').development;
+require('dotenv').config();
+
+const path = require('path');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const routes = require('./routes/index.js');
 
 const app = express();
 const router = express.Router();
 
 const environment = process.env.NODE_ENV;
-const port = stage.port
+const port = environment === 'production' ? 3000 : 5000;
 
-// Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(logger('dev'));
 
-
-// ROUTE
 if (environment === 'production') {
     require('./db/db')
     app.use(express.static(path.join(__dirname, 'client', 'build')))

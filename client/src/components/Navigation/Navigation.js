@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav} from 'react-bootstrap'
+import { Nav } from 'react-bootstrap'
 
 const navigation = ({ handler }) => (
     <Nav variant="pills" className="justify-content-center">

@@ -1,7 +1,6 @@
-const 
-    jwt = require('jsonwebtoken'),
-    User = require('../models/UserModel'),
-    Article = require('../models/ArticleModel');
+const jwt = require('jsonwebtoken');
+const { UserModel: User } = require('../modules/User');
+// const  = require('../models/ArticleModel');
 
 const auth = async (req, res, next) => {
     const authorizationHeader = req.headers.authorization;
@@ -12,13 +11,13 @@ const auth = async (req, res, next) => {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET, { expiresIn: '2 days' })
             const user = await User.findOne({ _id: decoded._id, 'tokens.token': token })
-            const articles = await Article.find({ created_by: user.email })
+            // const articles = await Article.find({ created_by: user.email })
 
             if (!user) throw new Error()
 
             req.token = token
             req.user = user
-            req.articles = articles
+            // req.articles = articles
             next()
         } catch (error) {
             res.status(404).send({

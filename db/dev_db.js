@@ -1,12 +1,11 @@
-const
-    mongoose = require('mongoose'),
-    developmentConnUri = process.env.MONGO_DEV_CONN_URL || 'mongodb://127.0.0.1:27017/website',
-    databaseOptions = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false
-    }
+const mongoose = require('mongoose');
+const developmentConnUri = process.env.MONGO_DEV_CONN_URL || 'mongodb://127.0.0.1:27017/website'
+const databaseOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+}
 
 
 mongoose.connect(developmentConnUri, databaseOptions, (err) => {

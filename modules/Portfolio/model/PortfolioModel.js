@@ -1,7 +1,6 @@
-const 
-    mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const ArticleSchema = new mongoose.Schema({
+const PortfolioSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true,
@@ -24,12 +23,13 @@ const ArticleSchema = new mongoose.Schema({
         required: false
     },
     start_date: {
-        type: String,
-        required: false,
+        type: Date,
+        required: true,
+        unique: true,
     },
     end_date: {
-        type: String,
-        required: false
+        type: Date,
+        default: null,
     },
     urls: {
         type: String,
@@ -37,8 +37,8 @@ const ArticleSchema = new mongoose.Schema({
     },
 }, {
     timestamps: true
-})
+});
 
-const Article = mongoose.model('Article', ArticleSchema)
+const Portfolio = mongoose.model('Portfolio', PortfolioSchema);
 
-module.exports = Article
+module.exports = Portfolio;

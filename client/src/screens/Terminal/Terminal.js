@@ -5,7 +5,7 @@ import Contact from "../../components/Contact/Contact";
 import Portfolio from "../../components/Portfolio/Portfolio";
 
 const Terminal = () => {
-    const [navigation, setNavigation] = useState('terminal');
+    const [navigation, setNavigation] = useState('portfolio');
     const handleNavigation = e => {
         const value = e.target.value.toLocaleLowerCase(), allowedCommands = [
             'about',

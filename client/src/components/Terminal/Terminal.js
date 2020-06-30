@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Terminal.css';
 
-const terminal = ({ change }) => (
-    <div className="Terminal">
+const Terminal = ({ change }) => {
+    const focus = useRef(null);
+
+    useEffect(() => {
+        focus.current.focus();
+    }, [focus])
+
+    return (<div className="Terminal">
         <div className="window">
             <div className="terminal">
                 <p className="command">git clone <a target="_blank" rel="noopener" href="https://github.com/Elvis339/real-fake-website.xyz">https://github.com/Elvis339/real-fake-website.xyz</a></p>
@@ -18,6 +24,8 @@ const terminal = ({ change }) => (
                 </p>
                 <p className="command">
                     cd <input
+                        ref={focus}
+                        autoFocus={true}
                         type="text"
                         placeholder="Enter a command"
                         onChange={change}
@@ -28,7 +36,7 @@ const terminal = ({ change }) => (
                 </p>
             </div>
         </div>
-    </div>
-)
+    </div>)
+}
 
-export default terminal;
+export default Terminal;
