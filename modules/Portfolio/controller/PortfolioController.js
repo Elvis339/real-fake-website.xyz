@@ -3,8 +3,6 @@ const Portfolio = require('../model/PortfolioModel');
 const addNewArticle = async (req, res) => {
     try {
         const { body, user } = req;
-        const { type } = body;
-        if (type !== 'Portfolio') throw new Error();
 
         const portfolios = new Portfolio({
             ...body,

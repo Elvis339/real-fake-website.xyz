@@ -16,10 +16,11 @@ const About = ({ handler }) => (
             path="/api/v1/about"
             render={
                 data => {
+                    const { description } = data.payload;
                     return (
                         <div className='about-content mx-auto about-card'>
                             <div className="lead">
-                                {ReactHtmlParser(data.description)}
+                                {ReactHtmlParser(description)}
                             </div>
                         </div>
                     )
