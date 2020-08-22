@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/Elvis339/personal_website#readme",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.2",
     "cross-env": "^6.0.3",
